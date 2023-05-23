@@ -21,7 +21,7 @@ function uploadFile(uploaded) {
     console.log("Starting file upload");
     setTimeout( function() {
             uploaded();
-        }, 3000
+        }, 23000
     )
 }
 
