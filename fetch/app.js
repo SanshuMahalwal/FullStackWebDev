@@ -1,4 +1,4 @@
-
+ 
 const catFacts = document.querySelector('#cat-facts');
 
 fetch('https://cat-fact.herokuapp.com/facts')
