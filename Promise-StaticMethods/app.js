@@ -37,7 +37,7 @@ async function performBatchTasks(){
 
         // const result = Promise.all([t1, t2, t3, t4]);
         // const result = Promise.allSettled([t1, t2, t3, t4]);
-        const result = await Promise.any([t1, t2, t3, t4]); // return first RESOLVED value - done successfully (not rejected and not pending)
+        const result = await Promise.any([t1, t2, t3, t4]); // returns first RESOLVED value - done successfully (not rejected and not pending)
         // const result = await Promise.race([t1, t2, t3, t4]); //returns first SETTLED value - done (successful or rejected but not pending) 
         console.log(result);
     
