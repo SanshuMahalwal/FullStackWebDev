@@ -23,14 +23,13 @@
 
 function downloadFile(url) {
 
-    return new Promise (function(resolve, reject) {
+    return new Promise ((resolve, reject)=> {
         
         if(!url.startsWith('http')) {
             throw new Error("Invalid URL!!")
         }
-
         console.log(`Downloading file from ${url}`);
-        setTimeout( function() {
+        setTimeout(()=> {
                 const path = url.split('/').pop();
                 resolve(path);
             }, 3000
@@ -76,13 +75,31 @@ function uploadFile() {
 //         })
 // })
 
-downloadFile('smtp://facebook.com/profile.jpg')
-.then(compressFile)
-.then(uploadFile)
-.then(()=>{
+// downloadFile('smtp://facebook.com/profile.jpg')
+// .then(compressFile)
+// .then(uploadFile)
+// .then(()=>{
+//     console.log('File uploaded successfully');
+// })
+// .catch((err)=>{
+//     console.log('Something went wrong');
+//     console.log(err.message);
+// })
+
+//Using Async Await
+async function main() {
+   try{
+    const path = await downloadFile('http://facebook.com/profile.jpg');
+    console.log(`File downloaded successfully as ${path}`);
+    const compressedPath = await compressFile(path);
+    console.log(`File compressed successfully as ${compressedPath}`);
+    const uploadedPath = await uploadFile();
     console.log('File uploaded successfully');
-})
-.catch((err)=>{
-    console.log('Something went wrong');
+   }
+
+   catch(err) {
     console.log(err.message);
-})
+   }
+}
+
+main();
