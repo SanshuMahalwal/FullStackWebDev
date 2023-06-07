@@ -130,7 +130,7 @@ async function main() {
     console.log(`Payment successfull for order ${odrId}, txn id : ${payment.txnId}`);
     console.log(`Wallet amount : ${PizzaStore.walletAmount}`);
 
-    const emailId = 'sunny7@xyz.com'
+    const emailId = 'sm7@xyz.com'
     const emailNotification = await PizzaStore.sendEmail(emailId, odrId);
 
     console.log(emailNotification)
