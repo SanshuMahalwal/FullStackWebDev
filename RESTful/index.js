@@ -16,6 +16,7 @@ app.get('/', (req, res) => {
     res.send("Connected")
 })
 
+// Show all blogs
 app.get('/blogs', (req, res) => {
     res.render('index', {blogs})
     // for (let blog of blogs) {
@@ -23,10 +24,12 @@ app.get('/blogs', (req, res) => {
     // } //How to get the generated blog id without doing the console??
 })
 
+// Render form for creating a new blog
 app.get('/blogs/new', (req, res) => {
     res.render('new') //rendering the form
 })
 
+// Post a new blog
 app.post('/blogs', (req, res) => {
     //req.body --> query params values filled in the form
     const {title, imgUrl, desc} = req.body
@@ -35,6 +38,7 @@ app.post('/blogs', (req, res) => {
     res.redirect('/blogs');
 })
 
+// Show a blog by id
 app.get('/blogs/:blogId', (req, res) => {
     const { blogId } = req.params;
     const foundBlog = blogs.find((blog) => blog.id === blogId)
@@ -45,6 +49,7 @@ app.get('/blogs/:blogId', (req, res) => {
     // console.log(foundBlog);
 })
 
+// Render an update blog form
 app.get('/blogs/:blogId/edit', (req, res) => {
     const { blogId } = req.params
     const foundBlog = blogs.find((blog) => blog.id === blogId)
@@ -54,6 +59,7 @@ app.get('/blogs/:blogId/edit', (req, res) => {
     res.render('edit', {foundBlog})
 })
 
+// Update a blog
 app.patch('/blogs/:blogId', (req, res) => {
     const { blogId } = req.params
     const { title, imgUrl, desc } = req.body
@@ -62,6 +68,7 @@ app.patch('/blogs/:blogId', (req, res) => {
     res.redirect(`/blogs/${blogId}`);
 })
 
+//Delete a blog
 app.delete('/blogs/:blogId', (req, res) => {
     const { blogId } = req.params
     const newBlogs = blogs.filter((blog) => blog.id !== blogId)
