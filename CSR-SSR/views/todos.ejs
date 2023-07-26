@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>SSR</h1>
+
+    <form action="/todos" method="POST">
+        <input type="text" name="todo" placeholder="Add todo...">
+        <button type="submit">Click to add</button>
+    </form>
+
+    <ul>
+        <% for (let todo of Todos) { %>
+            <li> <%= todo %> </li>
+        <% } %>    
+    </ul>
+
+</body>
+</html>
