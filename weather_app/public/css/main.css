@@ -1,0 +1,330 @@
+@import url('https://fonts.googleapis.com/css2?family=Piazzolla:wght@200;300;400;900&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Piazzolla', serif;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+:root {
+    --main-bg : #023047;
+    --main-color : #8ecae6;
+}
+
+.main_menu {
+    background-color: var(--main-bg);
+}
+
+.navbar {
+    background-color: var(--main-bg);
+    padding: 2rem;
+}
+
+.navbar-toggler {
+    background-color: antiquewhite;
+}
+
+.navbar li {
+    margin-left: 2rem;
+}
+
+.navbar a {
+    color: #fff;
+    font-size: 2rem;
+}
+
+.navbar a:hover {
+    color: var(--main-color);
+}
+
+.navbar .navbar-brand .bi-snow {
+    animation-name: ghumo;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    color: var(--main-color);
+}
+
+@keyframes ghumo {
+    100% {
+        transform: rotateZ(1turn);
+    }
+}
+
+.main_header {
+    background-color: #fefae0;
+}
+
+.main_header_left {
+    height: 50rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+}
+
+.main_header_left p {
+    font-size: 2rem;
+}
+
+.main_header_left h1 {
+    font-size: 4rem;
+    margin: 1rem 0 3rem 0;
+    text-transform: capitalize;
+}
+
+.main_header_left span {
+    color: var(--main-color);
+}
+
+.main_header_left button {
+    border: none;
+    outline: none;
+    padding: 0.8rem 1.8rem;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    border-radius: 2rem;
+    box-shadow: 0 8px 5px #000;
+}
+
+.main_header_right {
+    height: 50rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+}
+
+footer {
+    width: 100%;
+    background-color: var(--main-bg);
+    margin-top: auto;
+}
+
+footer p {
+    margin: 0;
+    color: #fff;
+    font-size: 1.6rem;
+    text-align: center;
+    line-height: 5rem;
+}
+
+/* Weather Page Style */
+
+.weather_header {
+    width: 100%;
+    height: 100%;
+}
+
+.weather_header_left {
+    height: 40rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: end;
+    /* background-color: antiquewhite; */
+}
+
+.weather-form {
+    width: 40rem;
+    height: 60%;
+    background-color: #221919;
+    padding: 2rem;
+    border-radius: 2rem;
+}
+
+.city-label {
+    color: #fff;
+    font-size: 2.5rem;
+}
+
+.city-inp {
+    height: 4rem;
+    outline: none;
+    border-radius: 2rem;
+    padding: 2rem;
+    font-size: 2rem;
+}
+
+.check-btn {
+    margin: 0px auto;
+    padding: 3px 1.4rem;
+    font-size: 2rem;
+    border-radius: 2rem;
+    box-shadow: 0 0.5px 2px #fff;
+}
+
+.weather_header_right {
+    height: 40rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    border-radius: 2rem;
+}
+
+.weather-info {
+    padding: 0;
+    background-color: var(--main-color);
+    border-radius: 2rem;
+    width: 70%;
+    height: 70%;
+}
+
+.top-layer {
+    background-color: #221919;
+    width: 100%;
+    height: 15%;
+    border-top-left-radius : 2rem;
+    border-top-right-radius : 2rem;
+    padding: 0px 10px;
+}
+
+#day{
+    font-size: 1.4rem;
+    color: #fff;
+    font-weight: bold;
+}
+#date {
+    font-size: 1.4rem;
+    color: #fff;
+    font-weight: bold;
+}
+
+.city-out {
+    font-size: 2.5rem;
+    font-weight: 600;
+}
+
+.city-temp {
+    font-size: 3.5rem;
+    font-weight: 900;
+}
+.city-mood {
+    font-size: 7rem;
+    font-weight: 900;
+}
+
+.city-feels {
+    font-size: 3.5rem;
+    font-weight: 900;
+    /* text-transform: ; */
+}
+
+.data_hide {
+    visibility: hidden;
+}
+
+.clear {
+    background-image: url('https://media.istockphoto.com/id/1430537932/photo/blue-sky-with-white-clouds.webp?b=1&s=170667a&w=0&k=20&c=h9jXcgHg0keOp2OnI-hkJhsAEAEewKNediKrg-s97a8=');
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-blend-mode: lighten;
+    }
+
+.clouds{
+    background-image: url('https://images.unsplash.com/uploads/14122598319144c6eac10/5f8e7ade?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fGNsb3VkeXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60');
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-blend-mode: lighten;
+}
+
+.fog {
+    background-image: url('https://media.istockphoto.com/id/1393158822/photo/gray-gradient-empty-photo-studio-room-or-stage-decoration-background-design-with-concrete-or.webp?b=1&s=170667a&w=0&k=20&c=3wnHzsDE55LjG6dI8hm3Pvwi3PdaH-H2CuXtFj_qhJg=');
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-blend-mode: lighten;
+}
+
+.mist {
+    background-image: url('https://images.unsplash.com/photo-1614785246748-edc43ab91f76?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8aHVtaWRpdHl8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=500&q=60');
+      /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-blend-mode: lighten;
+}
+
+.drizzle {
+    background-image: url('https://images.unsplash.com/photo-1598989020695-b8519d962d97?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTZ8fGxpZ2h0JTIwZHJpenpsZXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60');
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-blend-mode: lighten;
+}
+
+.rain {
+    background-image: url('https://images.unsplash.com/photo-1519692933481-e162a57d6721?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8cmFpbnxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60');
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-blend-mode: lighten;
+}
+
+.haze {
+    background-image: url('https://media.istockphoto.com/id/182438629/photo/delhi-roadway-pollution.webp?b=1&s=170667a&w=0&k=20&c=zpWN6KxjmiWCZ6501OVOpnRN9ZklSuoz_zES-Uu9ij8=');
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-blend-mode: lighten;
+}
+.snow {
+    background-image: url('https://images.unsplash.com/photo-1542601098-8fc114e148e2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8c25vd3xlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60');
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-blend-mode: lighten;
+}
+
+@media(max-width: 768px) {
+    .main_header_left {
+        height: auto;
+        margin: 5rem 0;
+    }
+    .main_header_right {
+        height: auto;
+        margin-top: 2rem;
+    }
+
+    .weather_header_left {
+        height: auto;
+        margin: 5rem 0;
+        align-items: center;
+    }
+
+    .weather_header_right {
+        height: auto;
+        margin-top: 1rem;
+    }
+
+    .weather-form {
+        height: auto;
+        width: auto;
+    }
+    .weather-info {
+        height: auto;
+        width: auto;
+    }
+}
+

@@ -1,0 +1,50 @@
+<%- include('./partials/header') %>
+
+<%- include('./partials/navbar') %>
+
+
+<div class="container-fluid main_header">
+    <div class="row">
+        <div class="col-md-10 col-12 mx-auto">
+            <div class="row">
+                <div class="col-md-6 col-12 main_header_left">
+                    <p>Welcome to Sunny's Weather App</p>
+                    <h1>Get the latest <span>weather</span> info of your city</h1>
+                    <a href="/weather"><button class="btn btn-primary btn-lg">Check now</button></a>
+                </div>
+                <div class="col-md-6 col-12 main_header_right">
+                    <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-inner">
+                          <div class="carousel-item active">
+                            <img src="https://plus.unsplash.com/premium_photo-1658526883284-b275dfe95eb8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8cGFyaXMlMjB3ZWF0aGVyfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60" class="rounded-circle w-100" alt="...">
+                          </div>
+                          <div class="carousel-item">
+                            <img src="https://images.unsplash.com/photo-1523540499309-18d7a30ddf76?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8bG9uZG9uJTIwc25vd3xlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60" class="rounded-circle w-100" alt="...">
+                          </div>
+                          <div class="carousel-item">
+                            <img src="https://media.istockphoto.com/id/1089026982/photo/image-of-winter-fog-scene-in-delhi-with-india-gate-as-a-background.jpg?s=612x612&w=0&k=20&c=rXSudGCCelYGe1O4y8Ix3txjVC-UdBlCLa8DIgRr4mg=" class="rounded-circle w-100" alt="...">
+                          </div>
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
+                          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                          <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
+                          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                          <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>  
+    </div>
+</div>    
+
+<footer> 
+  <p>Created with ❤️ by Sunny</p>
+</footer>
+            
+<%- include('./partials/footer') %>
+    
+
+
