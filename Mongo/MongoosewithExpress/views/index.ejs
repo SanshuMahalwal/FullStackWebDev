@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        h1 {
+            text-align: center;
+        }
+        section {
+            width: 80vw;
+            margin: 10px auto;
+            display: flex;
+            flex-wrap: wrap;
+        }
+        article {
+            width: 460px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            box-shadow: 0px 4px 4px 2px rgb(0,0,0,0.26);
+            padding: 15px;
+            margin: 15px;
+        }
+    </style>
+</head>
+<body>
+    <h1>All products</h1>
+
+    <a href="/products/new">Add new product</a>
+
+    <section>
+        <% for (let item of products) { %>
+            <article>
+                <h3><%= item.name %></h3>
+                <h4>$ <%= item.price %></h4>
+                <p><%= item.desc %></p>
+                <a href="/products/<%= item._id %>"><button>Show</button></a>
+            </article>
+        <% } %>        
+    </section>
+</body>
+</html>
