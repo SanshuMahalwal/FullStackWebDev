@@ -1,0 +1,46 @@
+<% layout('layouts/boilerplate') -%>
+
+<div class="container">
+    <h1 class="text-center mx-auto d-flex justify-content-between mb-3 px-3 py-2" style="background-color: #e9c46a; border: 1px solid grey; border-radius: 12px; width: 85%; box-shadow: 0 1px 0 0 black;">
+        <span><i class="bi bi-person-circle"></i> <%=user.username%></span>
+        <i class="bi bi-cart"></i>
+    </h1>
+    <div class="row">
+        <div class="col-lg-4 mx-auto">
+            <%for(let product of user.cart) {%>
+                <div class="card" style="width: 20rem;">
+                    <img class="card-img-top" src="<%=product.img%>" alt="Card image cap">
+                    <div class="card-body">
+                      <h5 class="card-title d-flex justify-content-between">
+                        <span><%=product.name%></span>
+                        <span class="badge badge-primary badge-pill" style="background-color: yellow; color: black;"><%=user.cartMap.get(product._id)%></span>
+                      </h5>
+                      <p class="card-text"><%=product.desc.substring(0,50)%>..</p>
+                      <form action="/user/<%=product._id%>/cart?_method=PATCH" method="post">
+                        <button type="submit" class="btn btn-danger">Remove from cart</button>
+                      </form>
+                      
+                    </div>
+                </div>  
+            <%}%>
+               
+        </div>
+        <div class="col-md-4 mx-auto">
+            <ul class="list-group">
+                <%for(let product of user.cart) {%>
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        <span>  <%=product.name%>
+                            <span class="ms-1"> x</span> 
+                            <span class="badge badge-primary badge-pill" style="background-color: yellow; color: black;"><%=user.cartMap.get(product._id)%></span>
+                        </span>
+                        <span>$ <%=product.price%></span>
+                    </li>
+                <%}%>
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                    <span>Total :</span>
+                    <span>$ <%=totalAmount%></span>
+                </li>              
+            </ul>
+        </div>
+    </div>
+</div>

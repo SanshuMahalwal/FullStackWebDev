@@ -1,0 +1,75 @@
+<% layout('layouts/boilerplate') -%>
+
+<%- include('../partials/flash') %>
+
+<div class="row">
+        <div class="col-lg-6">
+            <div class="card shadow-sm mx-auto mb-3" style="width: 22rem;">
+                <img src="<%=product.img%>" class="card-img-top" alt="product_image">
+                <div class="card-body">
+                    <h4 class="card-title"><%=product.name%></h4>
+                    <p class="card-text"><%=product.desc%></p>
+                    <h5 class="card-text">$ <%=product.price%></h5>
+                    <a href="#" class="btn btn-success btn-sm me-1">Buy</a>
+                    <form action="/user/<%=product._id%>/cart" method="post" class="d-inline-block">
+                        <button type="submit" class="btn btn-primary btn-sm me-1">Add to Cart</button>
+                    </form>
+                    <%if(currentUser && currentUser.role === "seller") { %>
+                        <a href="/products/<%=product._id%>/edit" class="btn btn-warning btn-sm me-1">Edit</a>
+                        <form class="d-inline-block" action="/products/<%=product._id%>?_method=DELETE" method="POST">
+                            <button class="btn btn-danger btn-sm me-1">Delete</button>
+                        </form>
+                    <%}%>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4" >
+            <div>
+                <h1>Leave a Review</h1>
+            </div>
+
+            <form class="my-3" style="width: 70%;" action="/products/<%=product._id%>/review" method="POST">
+                <div>
+                    <fieldset class="starability-basic">
+                        <input type="radio" id="no-rate" class="input-no-rate" name="rating" value="0" checked aria-label="No rating." />
+                        <input type="radio" id="first-rate1" name="rating" value="1" />
+                        <label for="first-rate1" title="Terrible">1 star</label>
+                        <input type="radio" id="first-rate2" name="rating" value="2" />
+                        <label for="first-rate2" title="Not good">2 stars</label>
+                        <input type="radio" id="first-rate3" name="rating" value="3" />
+                        <label for="first-rate3" title="Average">3 stars</label>
+                        <input type="radio" id="first-rate4" name="rating" value="4" />
+                        <label for="first-rate4" title="Very good">4 stars</label>
+                        <input type="radio" id="first-rate5" name="rating" value="5" />
+                        <label for="first-rate5" title="Amazing">5 stars</label>
+                      </fieldset>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="comment" >Comments : </label>
+                    <textarea class="form-control" name="comment" id="comment" rows="3"></textarea>
+                </div> 
+                <button class="btn btn-success btn-sm">Submit Review</button>
+            </form>
+
+            <% for (let review of product.reviews) { %>
+                <div class="card my-3">
+                    <div class="card-header" style="height: 3rem;">
+                        <p class="starability-result" data-rating="<%=review.rating%>">
+                            Rated: <%=review.rating%> stars
+                        </p>
+                    </div>
+                    <div class="card-body">
+                      <h6 class="card-title mb-3"><%=review.comment%></h6>
+                      <% if(review.createdAt) { %>
+                        <p class="text-muted"><%=review.createdAt.toDateString()%></p>
+                      <% } %> 
+                      <form action="/products/<%=product._id%>/<%=review._id%>?_method=DELETE" method="POST">
+                        <button class="btn btn-danger btn-sm">Delete</button>
+                      </form>
+                    </div>
+                </div>
+                
+            <% } %>
+            
+        </div>
+</div>

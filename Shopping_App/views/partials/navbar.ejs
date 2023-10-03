@@ -1,0 +1,42 @@
+  <nav class="navbar fixed-top navbar-expand-lg navbar-dark p-0" style="height: 3.5rem;">
+    <div class="container">
+      <img src="https://img.icons8.com/?size=512&id=783cmu1qIACD&format=png" alt="" width="30" height="24" class="d-inline-block align-text-top mx-2">  
+      <a class="navbar-brand" href="/products" style="font-size: 1.6rem;">e-Mart</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+          <ul class="navbar-nav mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link" aria-current="page" href="/products" style="font-size: 1.2rem;">Home</a>
+            </li>
+            <li class="nav-item" style= "border-left: 1px solid grey;">
+              <a class="nav-link" aria-current="page" href="/products" style="font-size: 1.2rem;">Products</a>
+            </li>
+            <%if(currentUser && currentUser.role === "seller") { %>
+              <li class="nav-item" style=" border-left: 1px solid grey;">
+                <a class="nav-link" href="/products/new" style="font-size: 1.2rem;">New</a>
+              </li>
+            <%}%>           
+          </ul>
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+           <% if(!currentUser) { %>
+              <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="/login" style="font-size: 1.2rem;">Login</a>
+              </li>
+            <% } %>
+            <% if(currentUser) { %>
+                <li class="nav-item" style="border-right: 1px solid grey;">
+                  <a class="nav-link" href="/user/cart"style="font-size: 1.2rem;"><i class="bi bi-cart"><sup><span class="badge badge-danger" style="background-color: rgb(221, 3, 3);"><%=currentUser.cart.length%></span></sup></i></a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/logout" style="font-size: 1.2rem;">Logout</a>
+                </li>
+            <% } %>
+              
+            
+            
+          </ul>
+      </div>
+    </div>
+  </nav>

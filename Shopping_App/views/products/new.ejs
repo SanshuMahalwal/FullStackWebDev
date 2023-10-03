@@ -1,0 +1,37 @@
+<% layout('layouts/boilerplate') -%>
+
+<%- include('../partials/flash') %>
+
+<form class="new-form needs-validation" action="/products" method="POST" novalidate>
+      <div class="mb-3">
+        <label for="name" class="form-label">Name : </label>
+        <input type="text" class="form-control" name="name" id="exampleFormControlInput1" placeholder="Add product name.." required>
+        <div class="valid-feedback">
+          Looks good!
+        </div>
+      </div>
+      <div class="mb-3">
+        <label for="img" class="form-label">Image URL : </label>
+        <input type="text" class="form-control" name="img" id="exampleFormControlInput2" placeholder="Add image url.." required>
+        <div class="valid-feedback">
+          Looks good!
+        </div>
+      </div>
+      <div class="input-group mb-3">
+        <span class="input-group-text" id="basic-addon1">$</span>
+        <input type="number" class="form-control" name="price" id="exampleFormControlInput3" placeholder="Add product price.." required>       
+        <div class="valid-feedback">
+          Looks good!
+        </div>
+      </div>
+      <div class="mb-3">
+        <label for="desc" class="form-label">Description : </label>
+        <textarea name="desc" class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Add product description.." required></textarea>
+        <div class="valid-feedback">
+          Looks good!
+        </div>
+      </div>
+      <div class="mb-3">
+        <button class="btn btn-success btn-md" type="submit">Add Product</button>
+      </div>
+</form>
